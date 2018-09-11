@@ -29,7 +29,6 @@ RUN apt-get update \
     imagemagick \
   && rm -rf /var/lib/apt/lists/*
 
-# skip installing gem documentation
 RUN mkdir -p /usr/local/etc \
   && { \
     echo 'install: --no-document'; \
@@ -41,8 +40,6 @@ ENV RUBY_VERSION 2.5.1
 ENV RUBY_DOWNLOAD_SHA256 dac81822325b79c3ba9532b048c2123357d3310b2b40024202f360251d9829b1
 ENV RUBYGEMS_VERSION 2.7.7
 
-# some of ruby's build scripts are written in ruby
-# we purge this later to make sure our final image uses what we just built
 RUN set -ex \
   && buildDeps=' \
     autoconf \
@@ -76,8 +73,6 @@ RUN set -ex \
   && gem update --system $RUBYGEMS_VERSION \
   && rm -r /usr/src/ruby
 
-# install things globally, for great justice
-# and don't create ".bundle" in all our apps
 ENV GEM_HOME /usr/local/bundle
 ENV BUNDLE_PATH="$GEM_HOME" \
   BUNDLE_BIN="$GEM_HOME/bin" \
