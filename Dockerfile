@@ -13,6 +13,7 @@ RUN sed -i "s|deb.debian.org|$MIRROR|g" /etc/apt/sources.list \
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     git-core \
+    tzdata \
     bzip2 \
     ca-certificates \
     openssl \
