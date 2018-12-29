@@ -1,6 +1,7 @@
 FROM ubuntu:latest
 
 ENV MIRROR="mirrors.ocf.berkeley.edu"
+ENV DEBIAN_FRONTEND="noninteractive"
 
 RUN sed -i "s|deb.debian.org|$MIRROR|g" /etc/apt/sources.list \
   && apt-get update \
