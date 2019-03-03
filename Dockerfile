@@ -30,7 +30,13 @@ RUN apt-get update \
     zlib1g-dev \
     libjemalloc-dev \
     imagemagick \
+    locales \
+    locales-all \
   && rm -rf /var/lib/apt/lists/*
+
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
 
 RUN mkdir -p /usr/local/etc \
   && { \
