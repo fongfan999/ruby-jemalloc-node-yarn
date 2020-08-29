@@ -44,9 +44,9 @@ RUN mkdir -p /usr/local/etc \
     echo 'update: --no-document'; \
   } >> /usr/local/etc/gemrc
 
-ENV RUBY_MAJOR 2.7
-ENV RUBY_VERSION 2.7.1
-ENV RUBY_DOWNLOAD_SHA256 d418483bdd0000576c1370571121a6eb24582116db0b7bb2005e90e250eae418
+ENV RUBY_MAJOR 2.4
+ENV RUBY_VERSION 2.4.10
+ENV RUBY_DOWNLOAD_SHA256 93d06711795bfb76dbe7e765e82cdff3ddf9d82eff2a1f24dead9bb506eaf2d0
 ENV RUBYGEMS_VERSION 3.1.3
 
 RUN set -ex \
